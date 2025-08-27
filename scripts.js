@@ -44,10 +44,6 @@ document.querySelectorAll(".btn-call").forEach((callBtn) => {
   });
 });
 
-document.getElementById("clear-history").addEventListener("click", () => {
-  historyCard.innerHTML = "";
-});
-
 document.querySelectorAll(".btn-copy").forEach((copyBtn) => {
   copyBtn.addEventListener("click", (e) => {
     const copyCard = e.target.closest(".card");
@@ -63,4 +59,8 @@ document.querySelectorAll(".btn-copy").forEach((copyBtn) => {
     copyCountValue += 1;
     document.getElementById("copy-count").innerText = copyCountValue;
   });
+});
+
+document.getElementById("clear-history").addEventListener("click", () => {
+  document.getElementById("history-card").innerHTML = "";
 });
