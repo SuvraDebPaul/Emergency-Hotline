@@ -49,3 +49,7 @@ allCallButtons.forEach((callBtn) => {
     }
   });
 });
+
+clearHistory.addEventListener("click", () => {
+  historyCard.innerHTML = "";
+});
