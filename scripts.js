@@ -1,32 +1,26 @@
-const heartCount = document.getElementById("heart-count");
-const coinCount = document.getElementById("coin-count");
-const copyCount = document.getElementById("copy-count");
-const allHearts = document.querySelectorAll(".fa-heart");
-const allCallButtons = document.querySelectorAll(".btn-call");
-const historyCard = document.getElementById("history-card");
-const clearHistory = document.getElementById("clear-history");
 let totalHeart = 0;
+let copyCountValue = 0;
 
-allHearts.forEach((heart) => {
+document.querySelectorAll(".fa-heart").forEach((heart) => {
   heart.addEventListener("click", () => {
     totalHeart = totalHeart + 1;
-    heartCount.innerText = totalHeart;
+    document.getElementById("heart-count").innerText = totalHeart;
   });
 });
 
-allCallButtons.forEach((callBtn) => {
+document.querySelectorAll(".btn-call").forEach((callBtn) => {
   callBtn.addEventListener("click", (e) => {
     const card = e.target.closest(".card");
     const cardHeading = card.querySelector(".card-heading").innerText;
     const cardNumber = card.querySelector(".card-number").innerText;
-    let coinValue = parseInt(coinCount.innerText);
-    if (coinValue > 0) {
+    let coinValue = parseInt(document.getElementById("coin-count").innerText);
+    if (coinValue >= 20) {
       alert(`📞 Calling... ${cardHeading} ${cardNumber}`);
       coinValue -= 20;
-      coinCount.innerText = coinValue;
+      document.getElementById("coin-count").innerText = coinValue;
       const now = new Date();
       const timeStr = now.toLocaleTimeString();
-      historyCard.insertAdjacentHTML(
+      document.getElementById("history-card").insertAdjacentHTML(
         "beforeend",
         `
           <div
@@ -50,6 +44,23 @@ allCallButtons.forEach((callBtn) => {
   });
 });
 
-clearHistory.addEventListener("click", () => {
+document.getElementById("clear-history").addEventListener("click", () => {
   historyCard.innerHTML = "";
+});
+
+document.querySelectorAll(".btn-copy").forEach((copyBtn) => {
+  copyBtn.addEventListener("click", (e) => {
+    const copyCard = e.target.closest(".card");
+    const hotlineNumber = copyCard.querySelector(".card-number").innerText;
+    navigator.clipboard
+      .writeText(hotlineNumber)
+      .then(() => {
+        alert(`This Number has been Copied: ${hotlineNumber}`);
+      })
+      .catch((err) => {
+        console.error("Failed to copy:", err);
+      });
+    copyCountValue += 1;
+    document.getElementById("copy-count").innerText = copyCountValue;
+  });
 });
