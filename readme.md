@@ -1,22 +1,22 @@
-# ANSWER OF THE QUESTIONS ==>
+# ** ANSWER OF THE QUESTIONS **
 
 ---
 
 ## 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 
-### ✅getElementByID :
+### ✅ getElementByID :
 
 The getElementByID is used to collect for a specific html content having a unique ID. if there is Multiple id with the same name then it will collect only the first html element with that specific id.
 
-### ✅getElementsByClassName :
+### ✅ getElementsByClassName :
 
 The getElementsByClassName is used to collect one or multiple html element having the unique or same classname respectively.
 
-### ✅querySelector :
+### ✅ querySelector :
 
 The querySelector is used to collect first matching single html element of a id, class or any html element that is defined as per css selector.
 
-### ✅querySelectorAll :
+### ✅ querySelectorAll :
 
 The querySelectorAll is used to collect matching all the html element of a id, class or any html element that is defined as per css selector. It returns an array like object collection.
 
@@ -26,7 +26,7 @@ The querySelectorAll is used to collect matching all the html element of a id, c
 
 ### Create an Element into DOM:
 
-By Using createElement('TagName') we can create that HTML Element for that specific tag named property into DOM. Like createElement('div') we can create a "<div>""</div>" block into the DOM. Using this method we can create any html block we want.
+By Using createElement('TagName') we can create that HTML Element for that specific tag named property into DOM. Like createElement('div') we can create a "<"div">""</"div">" block into the DOM. Using this method we can create any html block we want.
 
 ### Inserting an Element into DOM:
 
@@ -40,7 +40,8 @@ By Using createElement('TagName') we can create that HTML Element for that speci
 
 Event Bubbling means that after clicking a button, the click event bubbles up like a bubble in water from its triggered click event that is button to go upwards to its parent element then to its parent element upto the window element.
 
-**how does it work**:
+#### How does it work:
+
 Event Bubbling works in three phases
 
 - Capture Phase: Travels Down From window to the targeted down element.
